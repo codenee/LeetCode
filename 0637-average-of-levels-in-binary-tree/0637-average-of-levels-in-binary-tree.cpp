@@ -15,22 +15,25 @@ public:
         
         queue<TreeNode* > que;
         que.push(root);
+        
         vector<double> ans;
+        
         while(que.size()){
-            double qlen = que.size(), row = 0;
+
+            double qlen = que.size(), sum = 0;
             for(int i = 0; i < qlen; i++){
                 TreeNode* curr = que.front();
                 que.pop();
-                row += curr->val;
-                if(curr->left){
+                sum += curr->val;
+                if( curr->left ){
                     que.push(curr->left);
                 }
-                if(curr->right){
+                if( curr->right ){
                     que.push(curr->right);
                 }
             }
-             ans.push_back(row/qlen);
+            ans.push_back( sum / qlen);
         }
-        return ans;        
+        return ans;
     }
 };
