@@ -13,22 +13,18 @@ class Solution {
     
 private:
     bool Recur(TreeNode* curr, int nValue){
-        
         if(!curr){
             return true;
         }
         if(curr->val != nValue){
             return false;
         }
-        
         return Recur(curr->left, nValue) && Recur(curr->right, nValue);
     }
     
 public:
     bool isUnivalTree(TreeNode* root) {
-       
         int n = root->val;
         return Recur(root, n);
-       
     }
 };
