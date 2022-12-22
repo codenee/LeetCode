@@ -5,10 +5,14 @@ class Solution {
 public:
     int firstBadVersion(int n) {
      
-        int num = 1;
-        while(!isBadVersion(num)){
-            num++;
+       int lower = 1, high = n, mid = 0;
+        while(lower < high){
+            mid = lower + (high - lower) / 2;
+            if(isBadVersion(mid))
+                high = mid;
+            else
+                lower = mid + 1;
         }
-        return num;
+        return lower;
     }
 };
