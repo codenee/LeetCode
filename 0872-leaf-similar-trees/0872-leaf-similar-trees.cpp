@@ -10,34 +10,31 @@
  * };
  */
 class Solution {
-    
 private:
     void dfs(TreeNode* curr, vector<int>& vec){
-        
         if(!curr){
             return;
         }
-        
-        if( !(curr->left || curr->right)){
+        if(!(curr->left || curr->right)){
             vec.push_back(curr->val);
         }
         
         dfs(curr->left, vec);
         dfs(curr->right, vec);
+        
     }
     
 public:
     bool leafSimilar(TreeNode* root1, TreeNode* root2) {
-        vector<int> v1;
-        vector<int> v2;
+        vector<int> v1{};
+        vector<int> v2{};
         
         dfs(root1, v1);
         dfs(root2, v2);
         
-        if(v1 == v2)
+        if( v1 == v2)
             return true;
         
         return false;
-        
     }
 };
