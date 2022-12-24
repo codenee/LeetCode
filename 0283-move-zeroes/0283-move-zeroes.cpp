@@ -31,9 +31,17 @@ public:
         return;
     }
     //solution 3
-    void moveZeroes(vector<int>& nums) {
+    void moveZeroes4(vector<int>& nums) {
         
         stable_partition(begin(nums), end(nums), [](int i){return i;});
+        
+        return;
+    }
+    
+    //solution 4
+    void moveZeroes(vector<int>& nums) {
+        
+        stable_partition(rbegin(nums), rend(nums), logical_not<int>());
         
         return;
     }
