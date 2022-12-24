@@ -8,7 +8,7 @@ public:
         }
         return false; 
     }
-    void moveZeroes2(vector<int>& nums) {
+    void moveZeroes(vector<int>& nums) {
         
          int cnt = count(nums.begin(), nums.end(), 0);
          nums.erase(remove_if(nums.begin(), nums.end(), oper), nums.end());
@@ -19,8 +19,8 @@ public:
         return;
     }
     
-    //solution 2
-     void moveZeroes3(vector<int>& nums) {
+    //solution 2------------------------------------------------
+     void moveZeroes2(vector<int>& nums) {
         
          for(int i = 0, next = 0; i < nums.size(); ++i){
              if(nums[i]){
@@ -30,16 +30,17 @@ public:
         
         return;
     }
-    //solution 3
-    void moveZeroes4(vector<int>& nums) {
+    
+    //solution 3-------------------------------------------------
+    void moveZeroes3(vector<int>& nums) {
         
         stable_partition(begin(nums), end(nums), [](int i){return i;});
         
         return;
     }
     
-    //solution 4
-    void moveZeroes(vector<int>& nums) {
+    //solution 4-------------------------------------------------
+    void moveZeroes4(vector<int>& nums) {
         
         stable_partition(rbegin(nums), rend(nums), logical_not<int>());
         
