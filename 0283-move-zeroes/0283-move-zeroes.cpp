@@ -20,13 +20,20 @@ public:
     }
     
     //solution 2
-     void moveZeroes(vector<int>& nums) {
+     void moveZeroes3(vector<int>& nums) {
         
          for(int i = 0, next = 0; i < nums.size(); ++i){
              if(nums[i]){
                 swap(nums[i], nums[next++]);
              }
          }
+        
+        return;
+    }
+    //solution 3
+    void moveZeroes(vector<int>& nums) {
+        
+        stable_partition(begin(nums), end(nums), [](int i){return i;});
         
         return;
     }
