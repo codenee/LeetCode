@@ -1,9 +1,17 @@
 class Solution {
 public:
     void reverseString(vector<char>& s) {
-        int i = 0, j = s.size() - 1;
-        while( i < j){
-            swap( s[i++], s[j--]);
+        
+        stack<char> st;
+        for(const auto& it: s){
+            st.push(it);
+        }
+        s.clear();
+        while(!st.empty()){
+            char ch = st.top();
+            st.pop();
+            s.emplace_back(ch);
+                        
         }
     }
 };
